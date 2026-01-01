@@ -1,0 +1,231 @@
+INSERT INTO utilisateurs (nom, prenom, email, mot_de_passe, role, telephone, actif, date_creation, date_modification) VALUES
+-- ADMIN
+('Admin', 'Système', 'admin@gestionstock.com', '$2a$10$XqjR7Xw3SQfhKrR5r5KJ3OMR.jVxXXnXPE1fKt5tL5wV5wV5wV5wV', 'ADMIN', '0600000001', TRUE, NOW(), NOW()),
+
+-- PERSONNEL
+('Alami', 'Fatima', 'fatima.alami@gestionstock.com', '$2a$10$XqjR7Xw3SQfhKrR5r5KJ3OMR.jVxXXnXPE1fKt5tL5wV5wV5wV5wV', 'PERSONNEL', '0612345678', TRUE, NOW(), NOW()),
+('Benali', 'Mohammed', 'mohammed.benali@gestionstock.com', '$2a$10$XqjR7Xw3SQfhKrR5r5KJ3OMR.jVxXXnXPE1fKt5tL5wV5wV5wV5wV', 'PERSONNEL', '0623456789', TRUE, NOW(), NOW()),
+('Chakir', 'Amina', 'amina.chakir@gestionstock.com', '$2a$10$XqjR7Xw3SQfhKrR5r5KJ3OMR.jVxXXnXPE1fKt5tL5wV5wV5wV5wV', 'PERSONNEL', '0634567890', TRUE, NOW(), NOW()),
+
+-- UTILISATEURS
+('Idrissi', 'Youssef', 'youssef.idrissi@email.com', '$2a$10$XqjR7Xw3SQfhKrR5r5KJ3OMR.jVxXXnXPE1fKt5tL5wV5wV5wV5wV', 'UTILISATEUR', '0645678901', TRUE, NOW(), NOW()),
+('Fassi', 'Aisha', 'aisha.fassi@email.com', '$2a$10$XqjR7Xw3SQfhKrR5r5KJ3OMR.jVxXXnXPE1fKt5tL5wV5wV5wV5wV', 'UTILISATEUR', '0656789012', TRUE, NOW(), NOW()),
+
+-- CLIENTS
+('Hamdaoui', 'Omar', 'omar.hamdaoui@email.com', '$2a$10$XqjR7Xw3SQfhKrR5r5KJ3OMR.jVxXXnXPE1fKt5tL5wV5wV5wV5wV', 'CLIENT', '0667890123', TRUE, NOW(), NOW()),
+('Karimi', 'Samira', 'samira.karimi@email.com', '$2a$10$XqjR7Xw3SQfhKrR5r5KJ3OMR.jVxXXnXPE1fKt5tL5wV5wV5wV5wV', 'CLIENT', '0678901234', TRUE, NOW(), NOW()),
+('Mansouri', 'Hassan', 'hassan.mansouri@email.com', '$2a$10$XqjR7Xw3SQfhKrR5r5KJ3OMR.jVxXXnXPE1fKt5tL5wV5wV5wV5wV', 'CLIENT', '0689012345', TRUE, NOW(), NOW()),
+('Ouazzani', 'Leila', 'leila.ouazzani@email.com', '$2a$10$XqjR7Xw3SQfhKrR5r5KJ3OMR.jVxXXnXPE1fKt5tL5wV5wV5wV5wV', 'CLIENT', '0690123456', TRUE, NOW(), NOW());
+
+-- ==========================================
+-- ÉTAPE 4: INSERTION DES CATÉGORIES
+-- ==========================================
+
+INSERT INTO categories (nom, description, code, date_creation) VALUES
+('Électronique', 'Appareils et accessoires électroniques', 'ELEC', NOW()),
+('Informatique', 'Ordinateurs, périphériques et accessoires informatiques', 'INFO', NOW()),
+('Mobilier', 'Meubles de bureau et maison', 'MOBI', NOW()),
+('Fournitures', 'Fournitures de bureau et scolaires', 'FOUR', NOW()),
+('Téléphonie', 'Smartphones, tablettes et accessoires', 'TELE', NOW()),
+('Audio/Vidéo', 'Équipements audio et vidéo', 'AVID', NOW()),
+('Consommables', 'Produits consommables (papier, encre, etc.)', 'CONS', NOW()),
+('Réseau', 'Équipements réseau et connectivité', 'RESE', NOW());
+
+-- ==========================================
+-- ÉTAPE 5: INSERTION DES FOURNISSEURS
+-- ==========================================
+
+INSERT INTO fournisseurs (nom, email, telephone, adresse, ville, code_postal, pays, actif, date_creation) VALUES
+('TechWorld SA', 'contact@techworld.ma', '0520123456', '123 Avenue Mohammed V', 'Casablanca', '20000', 'Maroc', TRUE, NOW()),
+('InfoPro SARL', 'info@infopro.ma', '0530234567', '456 Rue Allal Ben Abdellah', 'Rabat', '10000', 'Maroc', TRUE, NOW()),
+('ElectroMaroc', 'vente@electromaroc.ma', '0540345678', '789 Boulevard Hassan II', 'Fès', '30000', 'Maroc', TRUE, NOW()),
+('MeublesPlus', 'contact@meublesplus.ma', '0550456789', '321 Avenue Imam Malik', 'Marrakech', '40000', 'Maroc', TRUE, NOW()),
+('FournitureExpress', 'commande@fournitureexpress.ma', '0560567890', '654 Rue de la Liberté', 'Tanger', '90000', 'Maroc', TRUE, NOW()),
+('TélécomDistrib', 'contact@telecomdistrib.ma', '0570678901', '987 Avenue Royal', 'Agadir', '80000', 'Maroc', TRUE, NOW()),
+('AudioVisionPro', 'info@audiovision.ma', '0580789012', '147 Rue Abdelmoumen', 'Casablanca', '20100', 'Maroc', TRUE, NOW()),
+('NetworkSolutions', 'sales@networksolutions.ma', '0590890123', '258 Avenue des FAR', 'Rabat', '10100', 'Maroc', TRUE, NOW());
+
+-- ==========================================
+-- ÉTAPE 6: INSERTION DES PRODUITS
+-- ==========================================
+
+-- CATÉGORIE: Informatique (ID=2)
+INSERT INTO produits (nom, description, reference, code_barres, prix_achat, prix_vente, quantite_stock, seuil_alerte, actif, categorie_id, date_creation) VALUES
+('Ordinateur Portable HP Pavilion 15', 'HP Pavilion 15, Intel Core i5, 8GB RAM, 256GB SSD', 'ORD-HP-001', '3210987654321', 4500.00, 6500.00, 15, 5, TRUE, 2, NOW()),
+('Ordinateur Portable Dell Inspiron', 'Dell Inspiron 15, Intel Core i7, 16GB RAM, 512GB SSD', 'ORD-DELL-001', '3210987654322', 6000.00, 8500.00, 10, 3, TRUE, 2, NOW()),
+('MacBook Air M2', 'Apple MacBook Air, Puce M2, 8GB, 256GB SSD', 'ORD-MAC-001', '3210987654323', 9000.00, 12000.00, 5, 2, TRUE, 2, NOW()),
+('Souris Sans Fil Logitech', 'Souris ergonomique sans fil, 1600 DPI', 'SOU-LOG-001', '1234567890123', 80.00, 150.00, 50, 10, TRUE, 2, NOW()),
+('Clavier Mécanique RGB', 'Clavier gaming mécanique avec rétroéclairage RGB', 'CLA-RGB-001', '2345678901234', 250.00, 450.00, 30, 8, TRUE, 2, NOW()),
+('Webcam HD 1080p', 'Webcam Full HD avec microphone intégré', 'WEB-HD-001', '3456789012345', 180.00, 320.00, 25, 5, TRUE, 2, NOW()),
+('Disque Dur Externe 1TB', 'Disque dur externe USB 3.0, 1 Téraoctet', 'HDD-1TB-001', '4567890123456', 350.00, 550.00, 40, 10, TRUE, 2, NOW()),
+('SSD Samsung 500GB', 'SSD interne SATA, 500GB, vitesse 550MB/s', 'SSD-SAM-500', '5678901234567', 400.00, 650.00, 35, 8, TRUE, 2, NOW());
+
+-- CATÉGORIE: Électronique (ID=1)
+INSERT INTO produits (nom, description, reference, code_barres, prix_achat, prix_vente, quantite_stock, seuil_alerte, actif, categorie_id, date_creation) VALUES
+('Écran 24 pouces Full HD', 'Moniteur LED 24", résolution 1920x1080', 'ECR-24-001', '6789012345678', 1200.00, 1800.00, 20, 5, TRUE, 1, NOW()),
+('Écran 27 pouces 4K', 'Moniteur IPS 27", résolution 3840x2160', 'ECR-27-4K', '7890123456789', 2500.00, 3800.00, 12, 3, TRUE, 1, NOW()),
+('Imprimante HP LaserJet', 'Imprimante laser noir et blanc, 20 ppm', 'IMP-HP-001', '8901234567890', 1500.00, 2200.00, 18, 4, TRUE, 1, NOW()),
+('Scanner Canon', 'Scanner à plat haute résolution 4800x4800 DPI', 'SCA-CAN-001', '9012345678901', 800.00, 1300.00, 15, 3, TRUE, 1, NOW()),
+('Onduleur 650VA', 'Onduleur avec protection contre les surtensions', 'OND-650-001', '0123456789012', 400.00, 700.00, 30, 8, TRUE, 1, NOW());
+
+-- CATÉGORIE: Téléphonie (ID=5)
+INSERT INTO produits (nom, description, reference, code_barres, prix_achat, prix_vente, quantite_stock, seuil_alerte, actif, categorie_id, date_creation) VALUES
+('Smartphone Samsung Galaxy A54', 'Samsung Galaxy A54, 128GB, 6GB RAM', 'TEL-SAM-A54', '1122334455661', 2500.00, 3800.00, 25, 5, TRUE, 5, NOW()),
+('iPhone 13', 'Apple iPhone 13, 128GB, Noir', 'TEL-IPH-13', '1122334455662', 6000.00, 8500.00, 15, 3, TRUE, 5, NOW()),
+('Xiaomi Redmi Note 12', 'Xiaomi Redmi Note 12 Pro, 256GB', 'TEL-XIA-N12', '1122334455663', 1800.00, 2800.00, 30, 7, TRUE, 5, NOW()),
+('Chargeur USB-C Rapide', 'Chargeur rapide 25W avec câble USB-C', 'ACC-CHG-25W', '2233445566771', 50.00, 120.00, 100, 20, TRUE, 5, NOW()),
+('Écouteurs Bluetooth', 'Écouteurs sans fil avec réduction de bruit', 'ACC-ECO-BT', '2233445566772', 200.00, 400.00, 45, 10, TRUE, 5, NOW()),
+('Coque de Protection', 'Coque en silicone pour smartphone', 'ACC-COQ-001', '2233445566773', 20.00, 50.00, 150, 30, TRUE, 5, NOW());
+
+-- CATÉGORIE: Mobilier (ID=3)
+INSERT INTO produits (nom, description, reference, code_barres, prix_achat, prix_vente, quantite_stock, seuil_alerte, actif, categorie_id, date_creation) VALUES
+('Bureau Ergonomique', 'Bureau réglable en hauteur, 140x70cm', 'BUR-ERG-001', '3344556677881', 2000.00, 3500.00, 10, 3, TRUE, 3, NOW()),
+('Chaise de Bureau', 'Chaise ergonomique avec soutien lombaire', 'CHA-BUR-001', '3344556677882', 800.00, 1500.00, 25, 5, TRUE, 3, NOW()),
+('Armoire de Rangement', 'Armoire 2 portes avec étagères', 'ARM-RAN-001', '3344556677883', 1200.00, 2000.00, 12, 3, TRUE, 3, NOW()),
+('Table de Réunion', 'Table de réunion 8 personnes, 240x120cm', 'TAB-REU-001', '3344556677884', 3000.00, 5000.00, 5, 2, TRUE, 3, NOW());
+
+-- CATÉGORIE: Fournitures (ID=4)
+INSERT INTO produits (nom, description, reference, code_barres, prix_achat, prix_vente, quantite_stock, seuil_alerte, actif, categorie_id, date_creation) VALUES
+('Ramette Papier A4', 'Papier blanc 80g/m², 500 feuilles', 'PAP-A4-001', '4455667788991', 35.00, 65.00, 200, 50, TRUE, 4, NOW()),
+('Stylo Bille Bleu', 'Lot de 10 stylos à bille bleu', 'STY-BLE-10', '4455667788992', 15.00, 30.00, 150, 30, TRUE, 4, NOW()),
+('Cahier A4 100 Pages', 'Cahier spirale A4 grands carreaux', 'CAH-A4-100', '4455667788993', 12.00, 25.00, 120, 25, TRUE, 4, NOW()),
+('Classeur A4', 'Classeur à levier dos 80mm', 'CLA-A4-80', '4455667788994', 18.00, 35.00, 80, 15, TRUE, 4, NOW()),
+('Agrafeuse Professionnelle', 'Agrafeuse métal capacité 50 feuilles', 'AGR-PRO-001', '4455667788995', 45.00, 85.00, 60, 12, TRUE, 4, NOW()),
+('Marqueurs Permanents', 'Lot de 4 marqueurs permanents couleurs', 'MAR-PER-004', '4455667788996', 25.00, 50.00, 100, 20, TRUE, 4, NOW());
+
+-- CATÉGORIE: Audio/Vidéo (ID=6)
+INSERT INTO produits (nom, description, reference, code_barres, prix_achat, prix_vente, quantite_stock, seuil_alerte, actif, categorie_id, date_creation) VALUES
+('Casque Audio Bluetooth', 'Casque Bluetooth avec réduction de bruit active', 'CAS-BT-RDB', '5566778899001', 350.00, 650.00, 40, 10, TRUE, 6, NOW()),
+('Enceinte Portable', 'Enceinte Bluetooth waterproof 20W', 'ENC-BT-20W', '5566778899002', 200.00, 380.00, 35, 8, TRUE, 6, NOW()),
+('Microphone USB', 'Microphone USB pour streaming et podcast', 'MIC-USB-001', '5566778899003', 300.00, 550.00, 20, 5, TRUE, 6, NOW());
+
+-- CATÉGORIE: Consommables (ID=7)
+INSERT INTO produits (nom, description, reference, code_barres, prix_achat, prix_vente, quantite_stock, seuil_alerte, actif, categorie_id, date_creation) VALUES
+('Cartouche Encre Noire', 'Cartouche d\'encre compatible HP noir', 'ENC-HP-NOI', '6677889900111', 80.00, 150.00, 60, 15, TRUE, 7, NOW()),
+('Cartouche Encre Couleur', 'Cartouche d\'encre compatible HP couleur', 'ENC-HP-COU', '6677889900112', 90.00, 170.00, 55, 15, TRUE, 7, NOW()),
+('Toner Laser', 'Toner compatible pour imprimante laser', 'TON-LAS-001', '6677889900113', 250.00, 450.00, 40, 10, TRUE, 7, NOW());
+
+-- CATÉGORIE: Réseau (ID=8)
+INSERT INTO produits (nom, description, reference, code_barres, prix_achat, prix_vente, quantite_stock, seuil_alerte, actif, categorie_id, date_creation) VALUES
+('Routeur WiFi 6', 'Routeur sans fil WiFi 6, vitesse 1800 Mbps', 'ROU-WF6-001', '7788990011221', 400.00, 750.00, 22, 5, TRUE, 8, NOW()),
+('Switch Réseau 8 Ports', 'Switch Gigabit 8 ports non manageable', 'SWI-8PT-001', '7788990011222', 200.00, 380.00, 30, 7, TRUE, 8, NOW()),
+('Câble Ethernet Cat6', 'Câble réseau Cat6, 5 mètres', 'CAB-CAT6-5M', '7788990011223', 25.00, 55.00, 100, 20, TRUE, 8, NOW()),
+('Point d\'Accès WiFi', 'Point d\'accès WiFi double bande', 'POI-WIFI-001', '7788990011224', 300.00, 550.00, 18, 5, TRUE, 8, NOW());
+
+-- ==========================================
+-- ÉTAPE 7: RELATIONS PRODUIT-FOURNISSEUR
+-- ==========================================
+
+INSERT INTO produit_fournisseur (produit_id, fournisseur_id) VALUES
+-- Produits Informatique (fournisseur InfoPro)
+(1, 2), (2, 2), (3, 2), (4, 2), (5, 2), (6, 2), (7, 2), (8, 2),
+-- Produits Électronique (fournisseur TechWorld et ElectroMaroc)
+(9, 1), (10, 1), (11, 3), (12, 3), (13, 3),
+-- Produits Téléphonie (fournisseur TélécomDistrib)
+(14, 6), (15, 6), (16, 6), (17, 6), (18, 6), (19, 6),
+-- Produits Mobilier (fournisseur MeublesPlus)
+(20, 4), (21, 4), (22, 4), (23, 4),
+-- Produits Fournitures (fournisseur FournitureExpress)
+(24, 5), (25, 5), (26, 5), (27, 5), (28, 5), (29, 5),
+-- Produits Audio/Vidéo (fournisseur AudioVisionPro)
+(30, 7), (31, 7), (32, 7),
+-- Produits Consommables (fournisseur FournitureExpress)
+(33, 5), (34, 5), (35, 5),
+-- Produits Réseau (fournisseur NetworkSolutions)
+(36, 8), (37, 8), (38, 8), (39, 8);
+
+-- ==========================================
+-- ÉTAPE 8: INSERTION DES COMMANDES
+-- ==========================================
+
+INSERT INTO commandes (numero_commande, date_commande, date_livraison, statut, montant_total, commentaire, utilisateur_id, date_creation) VALUES
+-- Commandes LIVREES
+('CMD-2024-0001', '2024-01-15', '2024-01-20', 'LIVREE', 8300.00, 'Première commande de matériel informatique', 7, '2024-01-15 10:30:00'),
+('CMD-2024-0002', '2024-01-18', '2024-01-23', 'LIVREE', 12650.00, 'Commande pour nouveau bureau', 8, '2024-01-18 14:20:00'),
+('CMD-2024-0003', '2024-01-20', '2024-01-25', 'LIVREE', 4250.00, 'Équipement pour télétravail', 9, '2024-01-20 09:15:00'),
+
+-- Commandes EN_PREPARATION
+('CMD-2024-0004', '2024-01-25', NULL, 'EN_PREPARATION', 5950.00, 'Commande urgente - matériel réseau', 7, '2024-01-25 11:45:00'),
+('CMD-2024-0005', '2024-01-26', NULL, 'EN_PREPARATION', 3150.00, 'Fournitures de bureau', 10, '2024-01-26 16:30:00'),
+
+-- Commandes VALIDEES
+('CMD-2024-0006', '2024-01-27', NULL, 'VALIDEE', 7800.00, 'Smartphones pour l\'équipe commerciale', 8, '2024-01-27 10:00:00'),
+('CMD-2024-0007', '2024-01-28', NULL, 'VALIDEE', 2100.00, 'Accessoires informatiques', 9, '2024-01-28 13:20:00'),
+
+-- Commandes EN_ATTENTE
+('CMD-2024-0008', '2024-01-29', NULL, 'EN_ATTENTE', 15500.00, 'Équipement complet nouveau bureau', 7, '2024-01-29 09:30:00'),
+('CMD-2024-0009', '2024-01-29', NULL, 'EN_ATTENTE', 1320.00, 'Consommables imprimante', 10, '2024-01-29 15:45:00'),
+('CMD-2024-0010', '2024-01-30', NULL, 'EN_ATTENTE', 4600.00, 'Matériel audio/vidéo pour salle de réunion', 8, '2024-01-30 10:15:00');
+
+-- ==========================================
+-- ÉTAPE 9: INSERTION DES LIGNES DE COMMANDE
+-- ==========================================
+
+-- CMD-2024-0001 (Livrée)
+INSERT INTO lignes_commande (quantite, prix_unitaire, sous_total, commande_id, produit_id) VALUES
+(1, 6500.00, 6500.00, 1, 1),  -- HP Pavilion
+(1, 1800.00, 1800.00, 1, 9);  -- Écran 24"
+
+-- CMD-2024-0002 (Livrée)
+INSERT INTO lignes_commande (quantite, prix_unitaire, sous_total, commande_id, produit_id) VALUES
+(1, 8500.00, 8500.00, 2, 2),  -- Dell Inspiron
+(1, 3500.00, 3500.00, 2, 20), -- Bureau ergonomique
+(2, 150.00, 300.00, 2, 4),    -- Souris
+(1, 450.00, 450.00, 2, 5);    -- Clavier
+
+-- CMD-2024-0003 (Livrée)
+INSERT INTO lignes_commande (quantite, prix_unitaire, sous_total, commande_id, produit_id) VALUES
+(1, 3800.00, 3800.00, 3, 14), -- Samsung A54
+(1, 450.00, 450.00, 3, 5);    -- Clavier mécanique
+
+-- CMD-2024-0004 (En préparation)
+INSERT INTO lignes_commande (quantite, prix_unitaire, sous_total, commande_id, produit_id) VALUES
+(1, 750.00, 750.00, 4, 36),   -- Routeur WiFi
+(3, 380.00, 1140.00, 4, 37),  -- Switch réseau
+(4, 550.00, 2200.00, 4, 39),  -- Point d'accès
+(30, 55.00, 1650.00, 4, 38);  -- Câbles
+
+-- CMD-2024-0005 (En préparation)
+INSERT INTO lignes_commande (quantite, prix_unitaire, sous_total, commande_id, produit_id) VALUES
+(30, 65.00, 1950.00, 5, 24),  -- Papier A4
+(20, 30.00, 600.00, 5, 25),   -- Stylos
+(10, 35.00, 350.00, 5, 27),   -- Classeurs
+(5, 50.00, 250.00, 5, 29);    -- Marqueurs
+
+-- CMD-2024-0006 (Validée)
+INSERT INTO lignes_commande (quantite, prix_unitaire, sous_total, commande_id, produit_id) VALUES
+(2, 3800.00, 7600.00, 6, 14), -- Samsung A54
+(1, 120.00, 120.00, 6, 17),   -- Chargeurs
+(2, 50.00, 100.00, 6, 19);    -- Coques
+
+-- CMD-2024-0007 (Validée)
+INSERT INTO lignes_commande (quantite, prix_unitaire, sous_total, commande_id, produit_id) VALUES
+(2, 650.00, 1300.00, 7, 8),   -- SSD
+(3, 150.00, 450.00, 7, 4),    -- Souris
+(1, 320.00, 320.00, 7, 6);    -- Webcam
+
+-- CMD-2024-0008 (En attente)
+INSERT INTO lignes_commande (quantite, prix_unitaire, sous_total, commande_id, produit_id) VALUES
+(1, 12000.00, 12000.00, 8, 3), -- MacBook Air
+(1, 3500.00, 3500.00, 8, 20);  -- Bureau
+
+-- CMD-2024-0009 (En attente)
+INSERT INTO lignes_commande (quantite, prix_unitaire, sous_total, commande_id, produit_id) VALUES
+(4, 150.00, 600.00, 9, 33),    -- Encre noire
+(4, 170.00, 680.00, 9, 34);    -- Encre couleur
+
+-- CMD-2024-0010 (En attente)
+INSERT INTO lignes_commande (quantite, prix_unitaire, sous_total, commande_id, produit_id) VALUES
+(2, 650.00, 1300.00, 10, 30),  -- Casque audio
+(3, 380.00, 1140.00, 10, 31),  -- Enceintes
+(2, 550.00, 1100.00, 10, 32),  -- Microphones
+(2, 380.00, 760.00, 10, 37);   -- Switches
+
+-- ==========================================
+-- ÉTAPE 10: INSERTION DES MOUVEMENTS DE STOCK
+-- ==========================================
+
+-- Entrées initiales (quand les produits arrivent des fournisseurs)
+INSERT INTO mouvements_stock (type, quantite, date_mouvement, reference, motif, prix_unitaire, produit_id, utilisateur_id, fournisseur_id) VALUES
+-- Informatique
+('ENTREE', 20, '2024-01-10 09:00:00', 'ENT-2024-001', 'Réception stock initial informatique', 4500.00, 1, 2, 2)
