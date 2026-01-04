@@ -147,18 +147,13 @@ cd gestion-stock-api
 
 ### 2. Créer la Base de Données
 
-```sql
--- Se connecter à MySQL
-mysql -u root -p
+
 
 -- Créer la base de données
 CREATE DATABASE gestion_stock_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
--- Vérifier
-SHOW DATABASES;
-
--- Quitter
-EXIT;
+-- coller
+  Ensuite, copiez et collez le code SQL contenu dans le fichier data.txt (section requêtes SQL) afin  insérer les données. 
 ```
 
 ### 3. Configurer l'Application
